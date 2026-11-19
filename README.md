@@ -1,7 +1,22 @@
-# Tiny Chess Engine (4 KB)
+# tiny-chess-engine
 
-A compact, original chess engine in a single `main.py` (4,067 bytes), written for the
-make.fun bounty "Build the strongest chess engine in 4 KB of Python".
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/Sandivisi/tiny-chess-engine/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/Sandivisi/tiny-chess-engine/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+
+A compact, original chess engine in a single `main.py` (3,242 bytes) for the make.fun bounty "Build the strongest chess engine in 4 KB of Python" — 0x88 negamax with alpha-beta, transposition table, quiescence search, and a 120,000-node deterministic move budget. Practice trials averaged Elo 1344 against the house gauntlet.
+
+## Run it
+
+```sh
+MAKEFUN_ENV_URL=http://127.0.0.1:18200 python3 -P -s main.py
+```
+
+The engine talks to the make.fun environment alone over HTTP (`POST $MAKEFUN_ENV_URL/game`, `/move`, `/resign`) and plays UCI moves. `engine.py` beside it is the readable source of the same engine.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
 
 ## Design
 
@@ -36,6 +51,7 @@ Beats the depth-2/3/4 rungs and scores against the 100k/250k-node rungs.
   unpacker (`zlib` + base85), which together count toward the 4,096-byte cap.
   The engine itself is original code written for this bounty; it reads, imports,
   and execs no other file of the repo.
+- `engine.py` — the readable source of the same engine (9,368 bytes).
 - `LICENSE` — MIT.
 
 ## License
